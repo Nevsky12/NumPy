@@ -14,14 +14,14 @@ with open("start.dat.txt", 'r') as file:
 data_x = np.linspace(0, 50)
 for i in range(255):
     plt.ion()
-    U = U @ (I - 0.5 * A)
+    U = (I - 0.5 * A) @ U
     plt.clf()
     plt.axis([0, 50, 0, 10])
     plt.grid(True)
     plt.plot(data_x, U)
     plt.draw()
     plt.gcf().canvas.flush_events()
-    time.sleep(0.05)
+    time.sleep(0.001)
     plt.show()
 
 plt.ioff()
